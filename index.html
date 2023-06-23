@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+  <style>
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .image-container img {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <div class="image-container" id="gallery">
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+  </div>
+
+  <button id="addImageButton">Add Image</button>
+
+  <script>
+    // Get the gallery container
+    var gallery = document.getElementById('gallery');
+
+    // Get the add image button
+    var addImageButton = document.getElementById('addImageButton');
+
+    // Add click event listener to the button
+    addImageButton.addEventListener('click', function() {
+      var newImage = document.createElement('img');
+      newImage.src = 'newimage.jpg';
+      newImage.alt = 'New Image';
+
+      gallery.append(newImage);
+    });
+  </script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+</head>
+<body>
+  <h1>Shopping List</h1>
+
+  <ul id="shoppingList">
+    <li>Bread</li>
+    <li>Milk</li>
+    <li>Eggs</li>
+  </ul>
+
+  <input type="text" id="itemInput" placeholder="Enter item">
+  <button id="addItemButton">Add Item</button>
+
+  <script>
+   var shoppingList = document.getElementById('shoppingList');
+   var itemInput = document.getElementById('itemInput');
+   var addItemButton = document.getElementById('addItemButton');
+
+   addItemButton.addEventListener('click',function(){
+     var itemText=itemInput.value;
+     if (itemText.trim() !== ''){
+        var newItem = document.createElement('li');
+        newItem.textContent = itemText;
+
+        shoppingList.append(newItem);
+        itemInput.value = '';
+     }
+   });
+  </script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+  <button id="addButton">Add Box</button>
+
+  <script>
+  function createBox(text){
+    var box = document.createElement('div');
+    box.className = 'box';
+    box.textContent = text;
+
+    return box;
+  }
+
+   var parentElement = document.getElementById('container');
+   var addButton = document.getElementById('addButton');
+
+   addButton.addEventListener('click', function(){
+           var newBox=createBox('additional-box');
+           parentElement.append(newBox);
+   });
+  </script>
+</body>
+</html> -->
