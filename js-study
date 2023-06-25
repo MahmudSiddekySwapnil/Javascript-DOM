@@ -1,0 +1,414 @@
+inheritance method
+append();
+
+
+getElementById()
+getElementByClassName()
+getElementsByTagName()
+querySelector()
+querySelectorAll()
+
+
+
+
+
+
+.............................................................................
+
+
+childElement:     ---property
+
+<div id="parent">
+  <div id="child">Child Element</div>
+</div>
+
+const childElement = document.getElementById('child');
+const parentElement = childElement.parentElement;
+console.log(parentElement); // Output: <div id="parent">...</div>
+
+childNodes:           property
+
+<div id="parent">
+  Text Node
+  <div id="child">Child Element</div>
+  <!-- Comment -->
+</div>
+
+const parentElement = document.getElementById('parent');
+const childNodes = parentElement.childNodes;
+console.log(childNodes); // Output: NodeList [Text, <div id="child">...</div>, Comment]
+
+children:               property
+<div id="parent">
+  <div id="child1">Child Element 1</div>
+  <div id="child2">Child Element 2</div>
+</div>
+
+const parentElement = document.getElementById('parent');
+const children = parentElement.children;
+console.log(children); // Output: HTMLCollection [<div id="child1">...</div>, <div id="child2">...</div>]
+
+firstChild:               property
+<div id="parent">
+  Text Node
+  <div id="child">Child Element</div>
+  <!-- Comment -->
+</div>
+
+const parentElement = document.getElementById('parent');
+const firstChild = parentElement.firstChild;
+console.log(firstChild); // Output: #text
+
+firstElementChild:          property
+<div id="parent">
+  <div id="child1">Child Element 1</div>
+  <div id="child2">Child Element 2</div>
+</div>
+const parentElement = document.getElementById('parent');
+const firstElementChild = parentElement.firstElementChild;
+console.log(firstElementChild); // Output: <div id="child1">...</div>
+
+lastChild:                     property
+<div id="parent">
+  Text Node
+  <div id="child">Child Element</div>
+  <!-- Comment -->
+</div>
+const parentElement = document.getElementById('parent');
+const lastChild = parentElement.lastChild;
+console.log(lastChild); // Output: #comment
+
+lastElementChild:                  property
+<div id="parent">
+  <div id="child1">Child Element 1</div>
+  <div id="child2">Child Element 2</div>
+</div>
+const parentElement = document.getElementById('parent');
+const lastElementChild = parentElement.lastElementChild;
+console.log(lastElementChild); // Output: <div id="child2">...</div>
+
+appendChild() -------method
+
+<div id="parent">
+  <div id="child1">Child Element 1</div>
+</div>
+const parentElement = document.getElementById('parent');
+const newChild = document.createElement('div');
+newChild.textContent = "Child Element 2";
+parentElement.appendChild(newChild);
+
+removeChild()     -------method
+
+<div id="parent">
+  <div id="child1">Child Element 1</div>
+  <div id="child2">Child Element 2</div>
+</div>
+const parentElement = document.getElementById('parent');
+const childElement = document.getElementById('child1');
+parentElement.removeChild(childElement);
+
+................................................................................
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<p id="my-element"></p>
+  <div id="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+  <button id="addButton">Add Box</button>
+
+ <script>
+  //  let test = document.querySelectorAll('#container');
+  //  console.log(test);
+
+  // let test = document.querySelector('#container');
+  // console.log(test);
+
+
+  // let test = document.querySelector('.box').style.color='red';
+  // console.log(test);
+
+  const myElement = document.getElementById('my-element');
+myElement.setAttribute('data-info', 'example');
+  </script>
+</body>
+</html> 
+
+
+<!-- 
+    <!DOCTYPE html>
+<html>
+<head>
+  <title>Attribute Example</title>
+</head>
+<body>
+  <h1>Attribute Example</h1>
+
+  <script>
+    // Create a new attribute node using createAttribute()
+    var classAttribute = document.createAttribute('class');
+    classAttribute.value = 'myDivClass';
+
+    // Get the target element
+    var myDiv = document.getElementById('myDiv');
+
+    // Assign the attribute to the element
+    myDiv.setAttributeNode(classAttribute);
+  </script>
+
+  <div id="myDiv">
+    <p>This is a div element with an attribute.</p>
+  </div>
+</body>
+</html> -->
+
+
+<!-- <script>
+// Open a new document
+document.open();
+
+// Write the HTML content to the document
+document.write("<table>");
+document.write("<tr>");
+document.write("<th>Name</th>");
+document.write("<th>Age</th>");
+document.write("<th>City</th>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>John</td>");
+document.write("<td>25</td>");
+document.write("<td>New York</td>");
+document.write("</tr>");
+document.write("<tr>");
+document.write("<td>Jane</td>");
+document.write("<td>30</td>");
+document.write("<td>London</td>");
+document.write("</tr>");
+document.write("</table>");
+
+// Close the document
+document.close();
+</script> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Example</title>
+  <style>
+    #chatContainer {
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 300px;
+      overflow-y: scroll;
+    }
+    .message {
+      margin-bottom: 10px;
+    }
+    .sender {
+      font-weight: bold;
+    }
+    .content {
+      margin-left: 10px;
+    }
+    #messageInput {
+      width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <h1>Chat Example</h1>
+
+  <div id="chatContainer"></div>
+
+  <input type="text" id="messageInput" placeholder="Type a message...">
+  <button id="sendButton">Send</button>
+
+  <script>
+    // Get the chat container
+    var chatContainer = document.getElementById('chatContainer');
+
+    // Get the input field and send button
+    var messageInput = document.getElementById('messageInput');
+    var sendButton = document.getElementById('sendButton');
+
+    // Add click event listener to the send button
+    sendButton.addEventListener('click', function() {
+      var messageText = messageInput.value;
+
+      if (messageText.trim() !== '') {
+        var messageElement = document.createElement('div');
+        messageElement.className = 'message';
+
+        var senderElement = document.createElement('span');
+        senderElement.className = 'sender';
+        senderElement.textContent = 'You: ';
+
+        var contentElement = document.createElement('span');
+        contentElement.className = 'content';
+        contentElement.textContent = messageText;
+
+        messageElement.append(senderElement, contentElement);
+        chatContainer.append(messageElement);
+
+        messageInput.value = '';
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+    });
+
+    // Add event listener to send message on pressing Enter key
+    messageInput.addEventListener('keypress', function(event) {
+      if (event.key === 'Enter') {
+        sendButton.click();
+      }
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+  <style>
+    .image-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .image-container img {
+      width: 200px;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <div class="image-container" id="gallery">
+    <img src="image1.jpg" alt="Image 1">
+    <img src="image2.jpg" alt="Image 2">
+    <img src="image3.jpg" alt="Image 3">
+  </div>
+
+  <button id="addImageButton">Add Image</button>
+
+  <script>
+    // Get the gallery container
+    var gallery = document.getElementById('gallery');
+
+    // Get the add image button
+    var addImageButton = document.getElementById('addImageButton');
+
+    // Add click event listener to the button
+    addImageButton.addEventListener('click', function() {
+      var newImage = document.createElement('img');
+      newImage.src = 'newimage.jpg';
+      newImage.alt = 'New Image';
+
+      gallery.append(newImage);
+    });
+  </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+</head>
+<body>
+  <h1>Shopping List</h1>
+
+  <ul id="shoppingList">
+    <li>Bread</li>
+    <li>Milk</li>
+    <li>Eggs</li>
+  </ul>
+
+  <input type="text" id="itemInput" placeholder="Enter item">
+  <button id="addItemButton">Add Item</button>
+
+  <script>
+   var shoppingList = document.getElementById('shoppingList');
+   var itemInput = document.getElementById('itemInput');
+   var addItemButton = document.getElementById('addItemButton');
+
+   addItemButton.addEventListener('click',function(){
+     var itemText=itemInput.value;
+     if (itemText.trim() !== ''){
+        var newItem = document.createElement('li');
+        newItem.textContent = itemText;
+
+        shoppingList.append(newItem);
+        itemInput.value = '';
+     }
+   });
+  </script>
+</body>
+</html> -->
+
+
+
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Append Example</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: lightgray;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+  </div>
+
+  <button id="addButton">Add Box</button>
+
+  <script>
+  function createBox(text){
+    var box = document.createElement('div');
+    box.className = 'box';
+    box.textContent = text;
+
+    return box;
+  }
+
+   var parentElement = document.getElementById('container');
+   var addButton = document.getElementById('addButton');
+
+   addButton.addEventListener('click', function(){
+           var newBox=createBox('additional-box');
+           parentElement.append(newBox);
+   });
+  </script>
+</body>
+</html> -->
